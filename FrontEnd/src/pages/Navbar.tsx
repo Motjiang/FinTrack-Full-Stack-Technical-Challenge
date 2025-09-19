@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom"; // Use Link for SPA navigation
 import "./Navbar.css";
 
 function Navbar() {
@@ -8,21 +9,26 @@ function Navbar() {
     setMenuOpen(!menuOpen);
   };
 
+  const closeMenu = () => setMenuOpen(false); // Close menu when a link is clicked
+
   return (
     <nav>
       <div className="nav__header">
         <div className="nav__logo">
-          <a href="#">
+          <Link to="/" onClick={closeMenu}>
             Fin<span>Track</span>
-          </a>
+          </Link>
         </div>
-        <div className="nav__menu__btn" id="menu-btn" onClick={toggleMenu}>
+        <div className="nav__menu__btn" onClick={toggleMenu}>
           <i className="ri-menu-line"></i>
         </div>
       </div>
-      <ul className={`nav__links ${menuOpen ? "open" : ""}`} id="nav-links">
+      <ul className={`nav__links ${menuOpen ? "open" : ""}`}>
         <li>
-          <a href="">How it works</a>
+          <Link to="/" onClick={closeMenu}>Dashboard</Link>
+        </li>
+        <li>
+          <Link to="/how-it-works" onClick={closeMenu}>How It Works</Link>
         </li>
         <li>
           <a

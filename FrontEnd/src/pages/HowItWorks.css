@@ -1,0 +1,84 @@
+/* General */
+.how-container {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  padding-bottom: 4rem;
+}
+
+h1, h2 {
+  margin: 0.5rem 0;
+}
+
+p {
+  line-height: 1.6;
+}
+
+/* Header */
+.how-header {
+  text-align: center;
+  background-color: #ff8906;
+  color: #fff;
+  padding: 4rem 2rem 2rem 2rem;
+}
+
+.how-header p {
+  font-size: 1.1rem;
+}
+
+/* Steps / Manual */
+.how-steps {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.step {
+  background-color: #fff;
+  border-left: 5px solid #ff8906;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.step:hover {
+  transform: translateY(-5px);
+}
+
+.step-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ff8906;
+  margin-bottom: 0.5rem;
+}
+
+/* Technology Stack */
+.tech-stack {
+  max-width: 900px;
+  margin: 2rem auto 4rem auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.tech-stack ul {
+  list-style: none;
+  padding: 0;
+}
+
+.tech-stack li {
+  margin: 0.5rem 0;
+  font-weight: 500;
+}
+
+/* Footer */
+.how-footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 4rem;
+}

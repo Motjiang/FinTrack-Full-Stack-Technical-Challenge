@@ -28,7 +28,7 @@ const upload = multer({
 });
 
 // POST upload
-app.post("/api/fintrack/upload/:userId/:year", upload.single("file"), async (req, res) => {
+app.post("/api/finances/upload/:userId/:year", upload.single("file"), async (req, res) => {
   const { userId, year } = req.params;
   if (!req.file) return res.status(400).json({ error: "No file uploaded" });
 
@@ -73,7 +73,7 @@ app.post("/api/fintrack/upload/:userId/:year", upload.single("file"), async (req
 });
 
 // GET records
-app.get("/api/fintrack/:userId/:year", async (req, res) => {
+app.get("/api/finances/:userId/:year", async (req, res) => {
   const { userId, year } = req.params;
   try {
     const [users] = await pool.query("SELECT * FROM users WHERE user_id = ?", [userId]);

@@ -1,5 +1,8 @@
 # Node.js dependencies
-node_modules/
+**/node_modules/
 
-# Environment files
+# Vite build outputs
+**/dist/
+
+# Environment variables
 **/.env

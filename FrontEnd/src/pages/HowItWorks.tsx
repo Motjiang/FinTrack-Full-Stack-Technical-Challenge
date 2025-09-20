@@ -3,65 +3,83 @@ import "./HowItWorks.css";
 
 const HowItWorks: React.FC = () => {
   return (
-    <div className="how-container">
+    <div className="howitworks container my-5">
+      <h1 className="display-4 mb-4">How FinTrack Works :)</h1>
+      <p className="lead mb-5">
+        FinTrack is a simple and intuitive financial tracker that lets you
+        upload monthly financial data, visualize it, and manage records
+        effortlessly.
+      </p>
 
-      {/* Header */}
-      <header className="how-header">
-        <h1>FinTrack: Your Financial Tracker</h1>
-        <p>Step-by-step guide to uploading, visualizing, and analyzing your financial data.</p>
-      </header>
-
-      {/* Steps / Manual */}
-      <section className="how-steps">
-        <div className="step">
-          <div className="step-number">1</div>
-          <h2>Upload Your Excel File</h2>
-          <p>
-            Choose a <code>.xlsx</code> file containing monthly financial data for a user and a specific year. 
-            Our system validates the file to ensure it meets the required structure.
-          </p>
-        </div>
-
-        <div className="step">
-          <div className="step-number">2</div>
-          <h2>Backend Processing & Storage</h2>
-          <p>
-            The backend, built with <strong>Node.js</strong> and <strong>Express</strong>, parses your Excel file 
-            and stores each record in the <strong>MySQL</strong> database. Each record is associated with the selected user and year.
-          </p>
-        </div>
-
-        <div className="step">
-          <div className="step-number">3</div>
-          <h2>Retrieve & Display Data</h2>
-          <p>
-            Use the dashboard to select a <strong>user</strong> and <strong>year</strong>. The system fetches the data via the API and displays it in a table 
-            and an interactive bar chart using <strong>React.js</strong> and <strong>Chart.js</strong>.
-          </p>
-        </div>
-
-        <div className="step">
-          <div className="step-number">4</div>
-          <h2>Analyze & Visualize</h2>
-          <p>
-            Quickly analyze trends in income and spending. Use the visual dashboard to make informed financial decisions. 
-            You can upload updated files, and the system will merge or update records for the year.
-          </p>
-        </div>
-      </section>
-
-      {/* Technology Stack */}
-      <section className="tech-stack">
-        <h2>Technology Stack</h2>
+      <section className="mb-5">
+        <h2 className="h4 mb-3">1. Upload Your Excel File</h2>
+        <p>
+          Select an Excel file (.xlsx) containing <strong>Month</strong> and{" "}
+          <strong>Amount</strong> columns. The app validates the file type and
+          structure before uploading.
+        </p>
         <ul>
-          <li><strong>Frontend:</strong> React.js, TypeScript, Vite, Bootstrap 5, Chart.js, Custom CSS</li>
-          <li><strong>Backend:</strong> Node.js, Express.js</li>
-          <li><strong>Database:</strong> MySQL</li>
-          <li><strong>File Handling:</strong> Excel (.xlsx) parsing with <code>xlsx</code> library</li>
-          <li><strong>API Communication:</strong> Axios</li>
+          <li>
+            File type must be <strong>.xlsx</strong>.
+          </li>
+          <li>Each row must have a valid month and numeric amount.</li>
+          <li>Invalid rows are skipped automatically.</li>
         </ul>
       </section>
 
+      <section className="mb-5">
+        <h2 className="h4 mb-3">2. Upload Validation & Notifications</h2>
+        <p>
+          After clicking <strong>Upload</strong>, FinTrack validates your data
+          and stores it in the database. You will get a notification using{" "}
+          <strong>React Toastify</strong> confirming whether the upload was
+          successful or if there were errors.
+        </p>
+      </section>
+
+      <section className="mb-5">
+        <h2 className="h4 mb-3">3. Search & View Data</h2>
+        <p>
+          You can select a <strong>User ID</strong> and <strong>Year</strong> to
+          fetch stored financial records.
+        </p>
+        <ul>
+          <li>Records are displayed in a clean, striped table.</li>
+          <li>Table includes Month and Amount columns.</li>
+        </ul>
+      </section>
+
+      <section className="mb-5">
+        <h2 className="h4 mb-3">4. Visualize with Charts</h2>
+        <p>
+          Data is automatically displayed in a <strong>bar chart</strong> for
+          easy visualization of trends across months. Each month has a distinct
+          color for clarity.
+        </p>
+      </section>
+
+      <section className="mb-5">
+        <h2 className="h4 mb-3">5. Technologies Used</h2>
+        <p>This project demonstrates a full-stack workflow:</p>
+        <ul>
+          <li>
+            <strong>Frontend:</strong> ReactJS, TypeScript, Bootstrap 5, CSS,
+            Chart.js, React Toastify
+          </li>
+          <li>
+            <strong>Backend:</strong> Node.js, Express, Axios
+          </li>
+          <li>
+            <strong>Database:</strong> MySQL
+          </li>
+        </ul>
+      </section>
+
+      <p className="text-muted mt-5">
+        By following these steps, anyone can upload financial data, validate it,
+        and visualize it clearly — making it easy to understand your financial
+        trends.
+      </p>
     </div>
   );
 };

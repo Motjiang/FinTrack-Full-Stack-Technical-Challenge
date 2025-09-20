@@ -10,12 +10,15 @@ const Dashboard: React.FC = () => {
   const [userId, setUserId] = useState<number>(1);
   const [year, setYear] = useState<number>(new Date().getFullYear());
 
+  const [userName, setUserName] = useState<string>("");
+
   const handleSearch = async (id: number, yr: number) => {
     setUserId(id);
     setYear(yr);
     try {
       const data = await getFinancialRecords(id, yr);
       setRecords(data.records);
+      setUserName(data.userName)
     } catch (err) {
       console.error(err);
       setRecords([]);
@@ -43,7 +46,7 @@ const Dashboard: React.FC = () => {
         </div>
       </div>
 
-      <DataDisplay records={records} />
+<DataDisplay records={records} userName={userName} year={year} />
     </div>
   );
 };

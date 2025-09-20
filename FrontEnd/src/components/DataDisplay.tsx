@@ -14,6 +14,8 @@ import {
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 interface DataDisplayProps {
+  userName: string;
+  year: number;
   records: FinancialRecord[];
 }
 
@@ -23,14 +25,13 @@ const COLORS = [
   "#E91E63", "#00BCD4", "#FFC107", "#9C27B0"
 ];
 
-const DataDisplay: React.FC<DataDisplayProps> = ({ records }) => {
+const DataDisplay: React.FC<DataDisplayProps> = ({ userName, year, records }) => {
   if (!records.length)
-  return (
-    <div className="alert alert-warning text-center" role="alert">
-      No financial records found.
-    </div>
-  );
-
+    return (
+      <div className="alert alert-warning text-center" role="alert">
+        No financial records found for {userName} in {year}.
+      </div>
+    );
 
   const labels = records.map((r) => r.month);
   const data = records.map((r) => r.amount);
@@ -39,21 +40,22 @@ const DataDisplay: React.FC<DataDisplayProps> = ({ records }) => {
     labels,
     datasets: [
       {
-        label: "Amount Per Month",
+        label: "Amount Per Month (R)",
         data,
-        backgroundColor: COLORS.slice(0, data.length), // map first N colors
+        backgroundColor: COLORS.slice(0, data.length),
       },
     ],
   };
 
   return (
     <div>
-      <h4>Financial Records</h4>
+      <h4>{userName} - Financial Records for {year}</h4>
+
       <table className="table table-striped mb-4">
         <thead>
           <tr>
             <th>Month</th>
-            <th>Amount</th>
+            <th>Amount (R)</th>
           </tr>
         </thead>
         <tbody>

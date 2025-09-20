@@ -1,6 +1,5 @@
 import axios from "axios";
 
-// Create a pre-configured Axios instance
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
   headers: {
@@ -25,10 +24,13 @@ export const uploadFinancialData = async (
   return response.data;
 };
 
-// Get financial records
 export const getFinancialRecords = async (userId: number, year: number) => {
   const response = await api.get(`/${userId}/${year}`);
-  return response.data;
+  return {
+    records: response.data.records,
+    userName: response.data.user?.name || "Unknown User",
+    year: response.data.year,
+  };
 };
 
 export default api;

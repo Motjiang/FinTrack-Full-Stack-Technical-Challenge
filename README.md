@@ -11,7 +11,7 @@ This project is designed to be simple for non-technical users while showcasing m
 - **Upload Financial Records:** Upload Excel files (`.xlsx`) containing monthly financial data.
 - **Data Validation:** Ensures only valid records are saved.
 - **Search:** Fetch financial records by user and year.
-- **Interactive Table:** View financial records in a clean, stiped table.
+- **Interactive Table:** View financial records in a clean, striped table.
 - **Charts & Visualization:** Display monthly amounts using bar charts (`Chart.js`).
 - **Notifications:** User-friendly toast notifications for success or errors (`react-toastify`).
 
